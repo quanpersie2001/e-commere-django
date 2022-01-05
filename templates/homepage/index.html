@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="{{banner.image_transparent_bg.url}}" alt="" height="550" width="710"/>
+                                    <img src="{{banner.image_transparent_bg.url}}" alt="" style="max-height: 550px; max-width: 700px", height="600"/>
                                 </div>
                             </div>
                         </div>
@@ -67,38 +67,50 @@
                 </div>
             </div>
             <div class="row align-items-center justify-content-between">
+
+                {% if featureCategories.0 %}
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3>{{featureCategories.0.category.title}}</h3>
                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="{% static 'img/feature/feature_1.png' %}" alt="">
+                        <img src="{{featureCategories.0.transparent_image.url}}" alt="" style="max-height: 370px; max-width: 550px">
                     </div>
                 </div>
+                {% endif %}
+
+                {% if featureCategories.1 %}
                 <div class="col-lg-5 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3>{{featureCategories.1.category.title}}</h3>
                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="{% static 'img/feature/feature_2.png' %}" alt="">
+                        <img src="{{featureCategories.1.transparent_image.url}}" alt="" style="max-height: 370px; max-width: 550px">
                     </div>
                 </div>
+                {% endif %}
+
+                {% if featureCategories.2 %}
                 <div class="col-lg-5 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3>{{featureCategories.2.category.title}}</h3>
                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="{% static 'img/feature/feature_3.png' %}" alt="">
+                        <img src="{{featureCategories.2.transparent_image.url}}" alt="" style="max-height: 370px; max-width: 550px">
                     </div>
                 </div>
+                {% endif %}
+
+                {% if featureCategories.3 %}
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3>{{featureCategories.3.category.title}}</h3>
                         <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="{% static 'img/feature/feature_4.png' %}" alt="">
+                        <img src="{{featureCategories.3.transparent_image.url}}" alt="" style="max-height: 370px; max-width: 550px">
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -117,235 +129,75 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product_list_slider owl-carousel">
+                        {% if awesome|length < 8 %}
                         <div class="single_product_list_slider">
                             <div class="row align-items-center justify-content-between">
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="{% static 'img/product/product_1.png' %}" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="{% static 'img/product/product_2.png' }" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="{% static 'img/product/product_3.png' %}" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="{% static 'img/product/product_4.png' %}" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_5.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_6.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_7.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_8.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_product_list_slider">
-                            <div class="row align-items-center justify-content-between">
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_1.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_2.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_3.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_4.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_5.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_6.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_7.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                        <img src="img/product/product_8.png" alt="">
-                                        <div class="single_product_text">
-                                            <h4>Quartz Belt Watch</h4>
-                                            <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- product_list part start-->
 
-    <!-- product_list part start-->
-    <section class="product_list best_seller section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="section_tittle text-center">
-                        <h2>Best Sellers <span>shop</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-12">
-                    <div class="best_product_slider owl-carousel">
-                        <div class="single_product_item">
-                            <img src="img/product/product_1.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
+                                    {% for awe in awesome%}
+                                    <div class="col-lg-3 col-sm-6">
+                                    <div class="single_product_item">
+                                        <a href='{{awe.product.get_absolute_url}}'>
+                                            <img src="{{awe.product.first_image.image.url}}" alt="">
+                                        </a>
+                                        <div class="single_product_text">
+                                            <h4>{{awe.product.title}}</h4>
+                                            <h3>${{awe.product.price}}</h3>
+                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                    {% endfor %}
                             </div>
                         </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_2.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
+                        {% else %}
+                            <div class="single_product_list_slider">
+                                <div class="row align-items-center justify-content-between">
+
+                                        {% for awe in awesome|slice:'0:8'%}
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="single_product_item">
+                                            <a href='{{awe.product.get_absolute_url}}'>
+                                                <img src="{{awe.product.first_image.image.url}}" alt="">
+                                            </a>
+                                            <div class="single_product_text">
+                                                <h4>{{awe.product.title}}</h4>
+                                                <h3>${{awe.product.price}}</h3>
+                                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        {% endfor %}
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_3.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
+
+                            <div class="single_product_list_slider">
+                                <div class="row align-items-center justify-content-between">
+
+                                        {% for awe in awesome|slice:'8:16'%}
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="single_product_item">
+                                            <a href='{{awe.product.get_absolute_url}}'>
+                                                <img src="{{awe.product.first_image.image.url}}" alt="">
+                                            </a>
+                                            <div class="single_product_text">
+                                                <h4>{{awe.product.title}}</h4>
+                                                <h3>${{awe.product.price}}</h3>
+                                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        {% endfor %}
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_4.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_5.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
+                            {% endif %}
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- product_list part end-->
 
 {% endblock %}
 

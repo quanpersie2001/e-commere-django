@@ -40,4 +40,7 @@ class Awesome(models.Model):
     def __str__(self):
         return self.product.title
 
+    def number_page_awesome(self):
+        return self.objects.all().length() // 8
+
 

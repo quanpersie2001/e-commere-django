@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView, DetailView
 from product.models import Category, Product
-from home.models import Banner,FeatureCategory
+from home.models import Banner, FeatureCategory, FeatureCategory, Awesome
 
 
 # Create your views here.
@@ -10,9 +10,12 @@ from home.models import Banner,FeatureCategory
 class HomeView(View):
     def get(self, request):
         context = {
+            'awesome': Awesome.objects.all(),
+            'featureCategories': FeatureCategory.objects.all(),
             'categories': Category.objects.all(),
             'products': Product.objects.all(),
             'banners': Banner.objects.all(),
+            'range': range(len(Awesome.objects.all()) // 8 + 1),
         }
         return render(request, 'homepage/index.html', context)
 

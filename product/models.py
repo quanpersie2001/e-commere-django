@@ -37,13 +37,16 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+    def get_quantity_product(self):
+        return len(self.products.all())
+
 
 class Product(models.Model):
     title = models.CharField(default='', max_length=100)
     description = models.TextField(default='')
     price = models.FloatField(default=0.0)
     active = models.BooleanField(choices=AVAILABILITY, default=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     slug = AutoSlugField(populate_from='title', unique=True)
 
     def __str__(self):

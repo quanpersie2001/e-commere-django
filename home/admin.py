@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import reverse
-from .models import Banner, FeatureCategory
+from .models import Banner, FeatureCategory, Awesome
 
 
 # Register your models here.
@@ -28,3 +28,4 @@ class FeatureCategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(FeatureCategory, FeatureCategoryAdmin)
+admin.site.register(Awesome)
