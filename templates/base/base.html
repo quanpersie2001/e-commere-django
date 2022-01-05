@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>aranoz</title>
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+
+    {% block cssblock %}
+
+    {% endblock %}
+
+</head>
+
+<body>
+
+    {% include 'base/navbar.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% include 'base/footer.html' %}
+
+    {% block jsblock %}
+
+    {% endblock %}
+
+</body>
+
+</html>
