@@ -145,16 +145,6 @@
                                     </select>
                                 </div>
                                 <div class="single_product_menu d-flex">
-                                    <h5>show :</h5>
-                                    <div class="top_pageniation">
-                                        <ul>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single_product_menu d-flex">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="search"
                                             aria-describedby="inputGroupPrepend">
@@ -174,7 +164,7 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
                                 <a href='{{product.get_absolute_url}}'>
-                                    <img src={{product.product_img.url}} alt="">
+                                    <img src={{product.first_image.image.url}} alt="">
                                 </a>
                                 <div class="single_product_text">
                                     <h4>{{product.title}}</h4>

@@ -46,7 +46,7 @@
         <div class="col-lg-7 col-xl-7">
           <div class="product_slider_img">
             <div id="vertical">
-              {% for p_image in object.image_set.all %}
+              {% for p_image in object.images.all %}
                 <div data-thumb="{{p_image.image.url}}">
                   <img src="{{p_image.image.url}}" />
                 </div>
