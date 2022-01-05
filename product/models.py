@@ -41,7 +41,6 @@ class Category(models.Model):
 class Product(models.Model):
     title = models.CharField(default='', max_length=100)
     description = models.TextField(default='')
-    product_img = models.FileField(blank=True, upload_to=path_and_rename, max_length=255, null=True)
     price = models.FloatField(default=0.0)
     active = models.BooleanField(choices=AVAILABILITY, default=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -50,6 +49,9 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    def first_image(self):
+        return self.images.all()[0]
+
     def get_absolute_url(self):
         return reverse("product", kwargs={
             'slug': self.slug
@@ -57,7 +59,7 @@ class Product(models.Model):
 
 
 class Image(models.Model):
-    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to=path_and_rename, max_length=255, null=True, blank=True)
 
     def __str__(self):

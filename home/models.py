@@ -27,9 +27,17 @@ class Banner(models.Model):
 
 
 class FeatureCategory(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, unique=True)
+    category = models.OneToOneField(Category, on_delete=models.CASCADE)
     transparent_image = models.ImageField(upload_to=path_and_rename)
+
+    def __str__(self):
+        return self.category.title
 
 
 class Awesome(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, unique=True)
+    product = models.OneToOneField(Product, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.product.title
+
+
