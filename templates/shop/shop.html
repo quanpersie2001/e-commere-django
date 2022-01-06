@@ -37,9 +37,13 @@
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
+                                    <li>
+                                        <a href='/shop'>All</a>
+                                        <span>({{ quantity_product }})</span>
+                                    </li>
                                     {% for cate in categories %}
                                     <li>
-                                        <a href="#">{{cate.title}}</a>
+                                        <a href='{{cate.get_absolute_url}}'>{{cate.title}}</a>
                                         <span>({{cate.get_quantity_product}})</span>
                                     </li>
                                     {% endfor %}
@@ -75,14 +79,20 @@
                         <div class="col-lg-12">
                             <div class="product_top_bar d-flex justify-content-between align-items-center">
                                 <div class="single_product_menu">
-                                    <p><span>{{ products|length }} </span> Prodict Found</p>
+                                    <p><span>{{ products|length }} </span> Product Found</p>
                                 </div>
                                 <div class="single_product_menu d-flex">
-                                    <h5>short by : </h5>
+                                    <h5>Price: </h5>
                                     <select>
-                                        <option data-display="Select">name</option>
-                                        <option value="1">price</option>
-                                        <option value="2">product</option>
+                                        <option value="1" data-display="Ascending" >Ascending</option>
+                                        <option value="2">Descending</option>
+                                    </select>
+                                </div>
+                                <div class="single_product_menu d-flex">
+                                    <h5>Name: </h5>
+                                    <select>
+                                        <option value="1" data-display="Ascending" >Ascending</option>
+                                        <option value="2">Descending</option>
                                     </select>
                                 </div>
                                 <div class="single_product_menu d-flex">

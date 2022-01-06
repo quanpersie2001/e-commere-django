@@ -25,6 +25,10 @@ class Banner(models.Model):
     def __str__(self):
         return f'{self.product.title} Banner'
 
+    @staticmethod
+    def get_all_banner():
+        return Banner.objects.all()
+
 
 class FeatureCategory(models.Model):
     category = models.OneToOneField(Category, on_delete=models.CASCADE)
@@ -32,6 +36,10 @@ class FeatureCategory(models.Model):
 
     def __str__(self):
         return self.category.title
+
+    @staticmethod
+    def get_all_feature_cate():
+        return FeatureCategory.objects.all()
 
 
 class Awesome(models.Model):
@@ -42,5 +50,9 @@ class Awesome(models.Model):
 
     def number_page_awesome(self):
         return self.objects.all().length() // 8
+
+    @staticmethod
+    def get_all_awesome():
+        return Awesome.objects.all()
 
 

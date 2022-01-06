@@ -5,11 +5,10 @@ from django.db import models
 from django.shortcuts import reverse
 from autoslug import AutoSlugField
 
-
 # Create your models here.
 AVAILABILITY = (
-    (True, 'In Stock'),
-    (False, 'Out Stock'),
+    ('IS', 'In Stock'),
+    ('OS', 'Out Stock'),
 
 )
 
@@ -38,16 +37,27 @@ class Category(models.Model):
         return self.title
 
     def get_quantity_product(self):
-        return len(self.products.all())
+        return len(self.products.filter(active=True))
+
+    @staticmethod
+    def get_all_category():
+        return Category.objects.filter(active=True)
+
+    def get_absolute_url(self):
+        return reverse("category", kwargs={
+            'slug': self.slug
+        })
 
 
 class Product(models.Model):
     title = models.CharField(default='', max_length=100)
     description = models.TextField(default='')
     price = models.FloatField(default=0.0)
-    active = models.BooleanField(choices=AVAILABILITY, default=True)
+    status = models.CharField(choices=AVAILABILITY, max_length=30)
+    active = models.BooleanField(default=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     slug = AutoSlugField(populate_from='title', unique=True)
+    quantity = models.IntegerField(default=1)
 
     def __str__(self):
         return self.title
@@ -60,6 +70,14 @@ class Product(models.Model):
             'slug': self.slug
         })
 
+    @staticmethod
+    def get_all_product():
+        return Product.objects.filter(active=True)
+
+    @staticmethod
+    def get_product_by_category(category_id):
+        return Product.objects.filter(category=category_id)
+
 
 class Image(models.Model):
     product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE, related_name='images')
@@ -68,12 +86,10 @@ class Image(models.Model):
     def __str__(self):
         return self.image.url
 
-
-class Variation(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    title = models.CharField(default='', max_length=255)
-    price = models.FloatField(default=0.0)
-    sale_price = models.FloatField(default=0.0)
-    active = models.BooleanField(default=True)
-    inventory = models.IntegerField(default=0)
-
+# class Variation(models.Model):
+#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+#     title = models.CharField(default='', max_length=255)
+#     price = models.FloatField(default=0.0)
+#     sale_price = models.FloatField(default=0.0)
+#     active = models.BooleanField(default=True)
+#     inventory = models.IntegerField(default=0)
