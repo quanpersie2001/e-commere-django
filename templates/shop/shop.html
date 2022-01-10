@@ -77,35 +77,37 @@
                 <div class="col-lg-9">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="product_top_bar d-flex justify-content-between align-items-center">
+                            <form class="product_top_bar d-flex justify-content-between align-items-center">
                                 <div class="single_product_menu">
                                     <p><span>{{ products|length }} </span> Product Found</p>
                                 </div>
-                                <div class="single_product_menu d-flex">
-                                    <h5>Price: </h5>
-                                    <select>
-                                        <option value="1" data-display="Ascending" >Ascending</option>
-                                        <option value="2">Descending</option>
-                                    </select>
-                                </div>
-                                <div class="single_product_menu d-flex">
-                                    <h5>Name: </h5>
-                                    <select>
-                                        <option value="1" data-display="Ascending" >Ascending</option>
-                                        <option value="2">Descending</option>
-                                    </select>
-                                </div>
-                                <div class="single_product_menu d-flex">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="search"
-                                            aria-describedby="inputGroupPrepend">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupPrepend"><i
-                                                    class="ti-search"></i></span>
+                                    <div class="single_product_menu d-flex">
+                                        <h5>Price: </h5>
+                                            <select onchange="this.form.submit()" name="sortByPrice">
+                                                <option value="asc" data-display="{{order_price}}">Ascending</option>
+                                                <option value="desc">Descending</option>
+                                            </select>
+                                    </div>
+                                    <div class="single_product_menu d-flex">
+                                        <h5>Name: </h5>
+                                        <select onchange="this.form.submit()" name="sortByName">
+                                            <option value="asc" data-display="{{order_name}}">Ascending</option>
+                                            <option value="desc">Descending</option>
+                                        </select>
+                                    </div>
+                                    <div class="single_product_menu d-flex">
+                                        <div class="input-group">
+                                            <input name="search" type="text" class="form-control" placeholder="search"
+                                                aria-describedby="inputGroupPrepend" value="{{search_txt}}">
+                                            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend">
+                                                    <i class="ti-search"></i>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
 
@@ -120,7 +122,10 @@
                                 <div class="single_product_text">
                                     <h4>{{product.title}}</h4>
                                     <h3>$ {{product.price}}</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                    <div class="add-cart-and-favourite d-flex justify-content-between align-items-center">
+                                        <a href="{{product.get_add_cart_url}}" class="add_cart">+ add to cart</a>
+                                        <a href="#" e><i class="ti-heart"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -3082,7 +3082,6 @@ ul {
 /*************** subscribe now **********************/
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_subscribe_area.scss */
 .subscribe_area {
-  background-image: url("../img/subscribe_area.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7774,5 +7773,4 @@ h6 {
     justify-content: flex-start !important;
   }
 }
-
 /*# sourceMappingURL=style.css.map */

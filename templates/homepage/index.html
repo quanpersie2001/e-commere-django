@@ -142,7 +142,10 @@
                                         <div class="single_product_text">
                                             <h4>{{awe.product.title}}</h4>
                                             <h3>${{awe.product.price}}</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <div class="add-cart-and-favourite d-flex justify-content-between align-items-center">
+                                                <a href="{{awe.product.get_add_cart_url}}" class="add_cart">+ add to cart</a>
+                                                <a href="#" e><i class="ti-heart"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -152,8 +155,7 @@
                         {% else %}
                             <div class="single_product_list_slider">
                                 <div class="row align-items-center justify-content-between">
-
-                                        {% for awe in awesome|slice:'0:8'%}
+                                    {% for awe in awesome|slice:'0:8'%}
                                         <div class="col-lg-3 col-sm-6">
                                         <div class="single_product_item">
                                             <a href='{{awe.product.get_absolute_url}}'>
@@ -162,11 +164,13 @@
                                             <div class="single_product_text">
                                                 <h4>{{awe.product.title}}</h4>
                                                 <h3>${{awe.product.price}}</h3>
-                                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                                <div class="add-cart-and-favourite d-flex justify-content-between align-items-center">
+                                                    <a href="{{awe.product.get_add_cart_url}}" class="add_cart">+ add to cart</a>
+                                                    <a href="#" e><i class="ti-heart"></i></a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                        {% endfor %}
+                                    {% endfor %}
                                 </div>
 
                             </div>

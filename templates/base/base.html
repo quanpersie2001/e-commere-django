@@ -9,6 +9,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>aranoz</title>
     <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <script type="text/javascript">
+		var user = '{{request.user}}'
+
+		function getToken(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
+    </script>
 
     {% block cssblock %}
 
@@ -25,6 +46,26 @@
     {% endblock %}
 
     {% include 'base/footer.html' %}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: '{{ message }}',
+                    confirmButtonColor: "#ff3368",
+                })
+            {% elif message.tags == 'success' %}
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '{{ message }}',
+                    confirmButtonColor: "#ff3368",
+                })
+            {% endif %}
+        {% endfor %}
+    </script>
 
     {% block jsblock %}
 
