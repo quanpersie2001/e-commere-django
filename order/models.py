@@ -22,7 +22,7 @@ class Order(models.Model):
     order_description = models.TextField(null=True, blank=True)
     time_create = models.DateTimeField(auto_now_add=True)
     status = models.CharField(choices=STATUS, max_length=50, default='p')
-    total_price = models.FloatField(max_length=50, null=True)
+    total_price = models.FloatField(max_length=50)
 
     # Sẽ có các phương thức thanh toán, được thực hiện sau này
     # payment_type = models.CharField(choices=PAYMENT_TYPE, max_length=50)
@@ -39,7 +39,7 @@ class Order(models.Model):
 class ShippingAddress(models.Model):
     user = models.ForeignKey(CustomerUser, on_delete=models.SET_NULL, null=True)
     order = models.OneToOneField(Order, on_delete=models.SET_NULL, null=True, related_name='address')
-    phone_number = models.CharField(max_length=15, null=True)
+    phone_number = models.CharField(max_length=15, null=False)
     address = models.CharField(max_length=200, null=False)
     city = models.CharField(max_length=200, null=False)
     state = models.CharField(max_length=200, null=False)

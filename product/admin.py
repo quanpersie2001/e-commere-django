@@ -5,7 +5,7 @@ from .models import Image, Product, Category
 # Register your models here.
 class ProductImageAdmin(admin.TabularInline):
     model = Image
-    fields = ['image_tag', ]
+    # fields = ['image_tag', ]
     readonly_fields = ['image_tag', ]
 
 

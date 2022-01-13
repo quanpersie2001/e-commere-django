@@ -55,9 +55,9 @@ class Product(models.Model):
     description = models.TextField(default='')
     price = models.FloatField(default=0.0)
     status = models.CharField(choices=AVAILABILITY, max_length=30, null=True)
-    active = models.BooleanField(default=True, null=True)
+    active = models.BooleanField(default=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
-    slug = AutoSlugField(populate_from='title', unique=True, null = True)
+    slug = AutoSlugField(populate_from='title', unique=True, null=True)
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
@@ -95,7 +95,7 @@ class Product(models.Model):
 
 class Image(models.Model):
     product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to=path_and_rename, max_length=255, null=True, blank=True)
+    image = models.ImageField(upload_to=path_and_rename, max_length=255)
 
     def __str__(self):
         return ''
