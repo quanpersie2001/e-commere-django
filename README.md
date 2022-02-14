@@ -7,7 +7,7 @@
 
 https://user-images.githubusercontent.com/72460490/148816621-96c2a4da-5080-4b0d-9a56-237e22c66582.mp4
 
-## Future editing
+## Ongoing developing feature
 
 * Dashboard admin interface
 * Rating and comment for customerUser
